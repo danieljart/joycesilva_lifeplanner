@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Life Planner - Consultoria Financeira Personalizada</title>
+  <meta name="description" content="Consultoria financeira personalizada e humanizada. Ajudo você a conquistar segurança financeira com planejamento prático e acessível.">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #111;
+      background: #fff;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* HERO SECTION */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f8fafc 0%, #e8f5e8 50%, #fff8e1 100%);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      width: 300px;
+      height: 300px;
+      background: rgba(76, 175, 80, 0.1);
+      border-radius: 50%;
+      filter: blur(60px);
+      z-index: 1;
+    }
+    
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 10%;
+      right: 10%;
+      width: 400px;
+      height: 400px;
+      background: rgba(255, 193, 7, 0.1);
+      border-radius: 50%;
+      filter: blur(80px);
+      z-index: 1;
+    }
+    
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero-text h1 {
+      font-size: 3.5rem;
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      color: #111;
+    }
+    
+    .hero-text h1 .highlight {
+      background: linear-gradient(135deg, #4CAF50, #388E3C);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 700;
+    }
+    
+    .hero-text p {
+      font-size: 1.25rem;
+      color: #666;
+      margin-bottom: 32px;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+    
+    .hero-text .highlight-text {
+      color: #4CAF50;
+      font-weight: 700;
+      font-style: italic;
+    }
+    
+    .hero-text .amber-text {
+      color: #388E3C;
+      font-weight: 700;
+      font-style: italic;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #4CAF50, #388E3C);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.125rem;
+      margin-bottom: 40px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(76, 175, 80, 0.3);
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(76, 175, 80, 0.4);
+    }
+    
+    .hero-badges {
+      display: flex;
+      gap: 32px;
+      color: #666;
+      font-size: 1rem;
+    }
+    
+    .badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    
+    .badge-dot.green {
+      background: #4CAF50;
+    }
+    
+    .badge-dot.amber {
+      background: #388E3C;
+    }
+    
+    .hero-image {
+      position: relative;
+    }
+    
+    .hero-image img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      object-position: center 55%;
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    }
+    
+    .floating-card {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background: white;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      border: 1px solid #f0f0f0;
+    }
+    
+    .floating-card .number {
+      font-size: 2rem;
+      font-weight: 300;
+      color: #4CAF50;
+      margin-bottom: 8px;
+    }
+    
+    .floating-card .label {
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    /* SERVICES SECTION */
+    .services {
+      padding: 80px 0;
+      background: linear-gradient(180deg, #fff 0%, #f8fafc 100%);
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 300;
+      margin-bottom: 20px;
+      color: #111;
+    }
+    
+    .section-title .highlight {
+      background: linear-gradient(135deg, #4CAF50, #388E3C);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 700;
+    }
+    
+    .section-description {
+      font-size: 1.25rem;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    
+    .service-card {
+      background: white;
+      padding: 32px 24px;
+      border-radius: 24px;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+      border: 1px solid #f0f0f0;
+      transition: all 0.3s ease;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    }
+    
+    .service-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, #4CAF50, #388E3C);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      color: white;
+      font-size: 1.5rem;
+    }
+    
+    .service-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #111;
+    }
+    
+    .service-description {
+      color: #666;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    
+    .service-link {
+      color: #4CAF50;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    
+    /* ABOUT SECTION */
+    .about {
+      padding: 80px 0;
+      background: white;
+    }
+    
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    
+    .about-image {
+      position: relative;
+    }
+    
+    .about-image img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      object-position: center 40%;
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    }
+    
+    .testimonial-card {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: white;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      border: 1px solid #f0f0f0;
+      max-width: 250px;
+    }
+    
+    .stars {
+      color: #388E3C;
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+    }
+    
+    .testimonial-text {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+      font-style: italic;
+    }
+    
+    .testimonial-author {
+      color: #999;
+      font-size: 0.8rem;
+    }
+    
+    .about-text h2 {
+      font-size: 2.5rem;
+      font-weight: 400;
+      margin-bottom: 24px;
+      color: #111;
+    }
+    
+    .about-text h2 .highlight {
+      background: linear-gradient(135deg, #4CAF50, #388E3C);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 600;
+    }
+    
+    .about-text p {
+      font-size: 1.125rem;
+      color: #666;
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+    
+    .about-list {
+      margin-top: 32px;
+    }
+    
+    .about-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      color: #333;
+      font-size: 1.125rem;
+    }
+    
+    .about-item i {
+      color: #4CAF50;
+      font-size: 1.2rem;
+    }
+    
+    /* DIFFERENTIALS SECTION */
+    .differentials {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #f8fafc 0%, #e8f5e8 100%);
+    }
+    
+    .differentials-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .differentials-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    
+    .sparkle-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, #4CAF50, #388E3C);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1rem;
+    }
+    
+    .badge-text {
+      color: #388E3C;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.875rem;
+    }
+    
+    .differentials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+    
+    .differential-card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 32px 24px;
+      border-radius: 24px;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(76, 175, 80, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .differential-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    }
+    
+    .differential-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, #4CAF50, #388E3C);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      color: white;
+      font-size: 1.5rem;
+    }
+    
+    .differential-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #111;
+    }
+    
+    .differential-description {
+      color: #666;
+      line-height: 1.6;
+    }
+    
+    .cta-highlight {
+      background: linear-gradient(135deg, #4CAF50, #388E3C);
+      color: white;
+      padding: 48px 32px;
+      border-radius: 24px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(76, 175, 80, 0.3);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .cta-highlight h3 {
+      font-size: 2rem;
+      font-weight: 300;
+      margin-bottom: 16px;
+    }
+    
+    .cta-highlight p {
+      font-size: 1.25rem;
+      opacity: 0.9;
+    }
+    
+    /* FINAL CTA SECTION */
+    .final-cta {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #111 0%, #333 50%, #4CAF50 100%);
+      color: white;
+      text-align: center;
+    }
+    
+    .final-cta h2 {
+      font-size: 2.5rem;
+      font-weight: 400;
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+    
+    .final-cta h2 .highlight {
+      background: linear-gradient(135deg, #4CAF50, #81C784);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 600;
+    }
+    
+    .final-cta p {
+      font-size: 1.25rem;
+      color: #d1d5db;
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+    
+    .final-cta .cta-button {
+      margin-bottom: 40px;
+    }
+    
+    .contact-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      color: #9ca3af;
+    }
+    
+    .divider-line {
+      width: 1px;
+      height: 24px;
+      background: #6b7280;
+    }
+    
+    .contact-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+    
+    .contact-button {
+      width: 48px;
+      height: 48px;
+      background: #333;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .contact-button:hover {
+      background: #4CAF50;
+      transform: scale(1.1);
+    }
+    
+    /* FLOATING BUTTONS */
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 56px;
+      height: 56px;
+      background: #4CAF50;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(76, 175, 80, 0.3);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    
+    .floating-whatsapp:hover {
+      background: #388E3C;
+      transform: scale(1.1);
+    }
+    
+
+    
+    /* RESPONSIVE DESIGN - MOBILE FIRST */
+    @media (max-width: 1200px) {
+      .container {
+        padding: 0 24px;
+      }
+    }
+    
+    @media (max-width: 1024px) {
+      .hero-text h1 {
+        font-size: 3rem;
+      }
+      
+      .section-title {
+        font-size: 2.25rem;
+      }
+      
+      .about-text h2 {
+        font-size: 2.25rem;
+      }
+      
+      .final-cta h2 {
+        font-size: 2.25rem;
+      }
+      
+      .hero-content {
+        gap: 50px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 20px;
+      }
+      
+      .hero {
+        padding: 40px 0;
+        min-height: auto;
+      }
+      
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+      
+      .hero-text h1 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+      }
+      
+      .hero-text p {
+        font-size: 1.125rem;
+      }
+      
+      .hero-badges {
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .hero-image img {
+        height: 350px;
+        object-position: center 55%;
+      }
+      
+      .hero-image {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .floating-card {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        margin-top: 20px;
+        min-width: 140px;
+        order: 2;
+      }
+      
+      .hero-image img {
+        order: 1;
+      }
+      
+      .services {
+        padding: 60px 0;
+      }
+      
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      
+      .service-card {
+        padding: 24px 20px;
+      }
+      
+      .service-icon {
+        width: 56px;
+        height: 56px;
+        font-size: 1.25rem;
+      }
+      
+      .service-title {
+        font-size: 1.125rem;
+      }
+      
+      .about {
+        padding: 60px 0;
+      }
+      
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+      
+      .about-image img {
+        height: 300px;
+        object-position: center 40%;
+      }
+      
+      .about-image {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .testimonial-card {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        transform: none;
+        margin-top: 20px;
+        max-width: 220px;
+        margin-left: auto;
+        margin-right: auto;
+        order: 2;
+      }
+      
+      .about-image img {
+        order: 1;
+      }
+      
+      .differentials {
+        padding: 60px 0;
+      }
+      
+      .differentials-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .differential-card {
+        padding: 24px 20px;
+      }
+      
+      .differential-icon {
+        width: 56px;
+        height: 56px;
+        font-size: 1.25rem;
+      }
+      
+      .differential-title {
+        font-size: 1.125rem;
+      }
+      
+      .cta-highlight {
+        padding: 32px 24px;
+        margin: 0 20px;
+      }
+      
+      .cta-highlight h3 {
+        font-size: 1.5rem;
+      }
+      
+      .cta-highlight p {
+        font-size: 1.125rem;
+      }
+      
+      .final-cta {
+        padding: 60px 0;
+      }
+      
+      .final-cta h2 {
+        font-size: 2rem;
+        line-height: 1.3;
+      }
+      
+      .final-cta p {
+        font-size: 1.125rem;
+      }
+      
+      .floating-whatsapp {
+        width: 52px;
+        height: 52px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 1.5rem;
+      }
+      
+
+    }
+    
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 16px;
+      }
+      
+      .hero {
+        padding: 30px 0;
+      }
+      
+      .hero-text h1 {
+        font-size: 2rem;
+        line-height: 1.3;
+      }
+      
+      .hero-text p {
+        font-size: 1rem;
+        margin-bottom: 24px;
+      }
+      
+      .cta-button {
+        padding: 14px 28px;
+        font-size: 1rem;
+        margin-bottom: 32px;
+      }
+      
+      .hero-image img {
+        height: 280px;
+        object-position: center 55%;
+      }
+      
+      .floating-card {
+        padding: 20px;
+        margin-top: 16px;
+        order: 2;
+      }
+      
+      .hero-image img {
+        order: 1;
+      }
+      
+      .floating-card .number {
+        font-size: 1.75rem;
+      }
+      
+      .services {
+        padding: 50px 0;
+      }
+      
+      .section-header {
+        margin-bottom: 40px;
+      }
+      
+      .section-title {
+        font-size: 1.75rem;
+        margin-bottom: 16px;
+      }
+      
+      .section-description {
+        font-size: 1.125rem;
+      }
+      
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      
+      .service-card {
+        padding: 20px 16px;
+      }
+      
+      .service-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.125rem;
+        margin-bottom: 16px;
+      }
+      
+      .service-title {
+        font-size: 1rem;
+        margin-bottom: 8px;
+      }
+      
+      .service-description {
+        font-size: 0.9rem;
+        margin-bottom: 16px;
+      }
+      
+      .about {
+        padding: 50px 0;
+      }
+      
+      .about-text h2 {
+        font-size: 1.75rem;
+        margin-bottom: 20px;
+      }
+      
+      .about-text p {
+        font-size: 1rem;
+        margin-bottom: 16px;
+      }
+      
+      .about-image img {
+        height: 250px;
+        object-position: center 40%;
+      }
+      
+      .testimonial-card {
+        padding: 16px;
+        max-width: 200px;
+        margin-top: 16px;
+        order: 2;
+      }
+      
+      .about-image img {
+        order: 1;
+      }
+      
+      .stars {
+        font-size: 1rem;
+        margin-bottom: 8px;
+      }
+      
+      .testimonial-text {
+        font-size: 0.8rem;
+        margin-bottom: 6px;
+      }
+      
+      .testimonial-author {
+        font-size: 0.75rem;
+      }
+      
+      .about-item {
+        font-size: 1rem;
+        margin-bottom: 12px;
+      }
+      
+      .about-item i {
+        font-size: 1rem;
+      }
+      
+      .differentials {
+        padding: 50px 0;
+      }
+      
+      .differentials-header {
+        margin-bottom: 40px;
+      }
+      
+      .sparkle-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 0.875rem;
+      }
+      
+      .badge-text {
+        font-size: 0.75rem;
+      }
+      
+      .differential-card {
+        padding: 20px 16px;
+      }
+      
+      .differential-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.125rem;
+        margin-bottom: 16px;
+      }
+      
+      .differential-title {
+        font-size: 1rem;
+        margin-bottom: 8px;
+      }
+      
+      .differential-description {
+        font-size: 0.9rem;
+      }
+      
+      .cta-highlight {
+        padding: 24px 20px;
+        margin: 0 16px;
+      }
+      
+      .cta-highlight h3 {
+        font-size: 1.25rem;
+        margin-bottom: 12px;
+      }
+      
+      .cta-highlight p {
+        font-size: 1rem;
+      }
+      
+      .final-cta {
+        padding: 50px 0;
+      }
+      
+      .final-cta h2 {
+        font-size: 1.75rem;
+        line-height: 1.4;
+        margin-bottom: 20px;
+      }
+      
+      .final-cta p {
+        font-size: 1rem;
+        margin-bottom: 32px;
+      }
+      
+      .final-cta .cta-button {
+        padding: 14px 28px;
+        font-size: 1rem;
+        margin-bottom: 32px;
+      }
+      
+      .contact-buttons {
+        gap: 16px;
+      }
+      
+      .contact-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.25rem;
+      }
+      
+      .floating-whatsapp {
+        width: 48px;
+        height: 48px;
+        bottom: 16px;
+        right: 16px;
+        font-size: 1.25rem;
+      }
+      
+
+    }
+    
+    @media (max-width: 360px) {
+      .container {
+        padding: 0 12px;
+      }
+      
+      .hero-text h1 {
+        font-size: 1.75rem;
+      }
+      
+      .section-title {
+        font-size: 1.5rem;
+      }
+      
+      .about-text h2 {
+        font-size: 1.5rem;
+      }
+      
+      .final-cta h2 {
+        font-size: 1.5rem;
+      }
+      
+      .service-card,
+      .differential-card {
+        padding: 16px 12px;
+      }
+      
+      .cta-highlight {
+        margin: 0 12px;
+        padding: 20px 16px;
+      }
+    }
+  </style>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Obrigada por<br><span class="highlight">estar aqui!</span></h1>
+          <p>Eu ajudo você a conquistar segurança financeira de forma <span class="amber-text">prática</span> e <span class="highlight-text">humanizada</span>.</p>
+          <a href="https://wa.me/13219616203?text=Olá! Gostaria de uma consulta financeira." class="cta-button">Quero minha consulta</a>
+          <div class="hero-badges">
+            <div class="badge">
+              <div class="badge-dot green"></div>
+              <span>Consultora licenciada</span>
+            </div>
+            <div class="badge">
+              <div class="badge-dot amber"></div>
+              <span>Atendimento personalizado</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="foto-principal.jpg" alt="Consultora Financeira Profissional">
+          <div class="floating-card">
+            <div class="number">+500</div>
+            <div class="label">Clientes atendidos</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section class="services">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Como posso <span class="highlight">ajudar você</span></h2>
+        <p class="section-description">Serviços personalizados para cada momento da sua jornada financeira</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <i data-lucide="shield"></i>
+          </div>
+          <h3 class="service-title">Seguro de Vida</h3>
+          <p class="service-description">Proteção para o seu presente e futuro.</p>
+          <a href="https://wa.me/13219616203?text=Oi Joyce, tenho interesse em saber mais sobre o Seguro de Vida e como ele pode proteger a minha família" class="service-link">Saiba mais →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <i data-lucide="piggy-bank"></i>
+          </div>
+          <h3 class="service-title">Previdência</h3>
+          <p class="service-description">Planejamento seguro para a sua aposentadoria.</p>
+          <a href="https://wa.me/13219616203?text=Oi Joyce, quero entender melhor como funciona a Previdência e como posso me planejar para o futuro" class="service-link">Saiba mais →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <i data-lucide="trending-up"></i>
+          </div>
+          <h3 class="service-title">Investimentos</h3>
+          <p class="service-description">Opções inteligentes para o seu dinheiro render.</p>
+          <a href="https://wa.me/13219616203?text=Oi Joyce, vi no seu site sobre investimentos e gostaria de saber quais opções você recomenda" class="service-link">Saiba mais →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <i data-lucide="graduation-cap"></i>
+          </div>
+          <h3 class="service-title">College</h3>
+          <p class="service-description">Planejamento financeiro para universidades e estudos.</p>
+          <a href="https://wa.me/13219616203?text=Oi Joyce, gostaria de saber mais sobre o planejamento financeiro para universidades e estudos (College Planning)" class="service-link">Saiba mais →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="about">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-image">
+          <img src="foto-sobre.jpg" alt="Sobre a consultora">
+          <div class="testimonial-card">
+            <div class="stars">
+              <i data-lucide="star"></i>
+              <i data-lucide="star"></i>
+              <i data-lucide="star"></i>
+              <i data-lucide="star"></i>
+              <i data-lucide="star"></i>
+            </div>
+            <p class="testimonial-text">"Transformou completamente minha relação com o dinheiro."</p>
+            <p class="testimonial-author">— Cliente satisfeita</p>
+          </div>
+        </div>
+        <div class="about-text">
+          <h2>Sobre <span class="highlight">mim</span></h2>
+                      <p>Sou consultora licenciada pelo departamento de finanças dos Estados Unidos e <strong style="font-weight: 800;">apaixonada</strong> por ajudar pessoas a conquistarem estabilidade e independência financeira.</p>
+            <p>Acredito que cada pessoa tem uma história única, e é por isso que desenvolvi um método de consultoria que combina <em style="font-style: italic; font-weight: 600;">técnica</em> com <em style="font-style: italic; font-weight: 600;">humanização</em>.</p>
+          <p>Meu objetivo é simples: tornar o mundo financeiro menos intimidador e mais acessível para você.</p>
+          <div class="about-list">
+            <div class="about-item">
+              <i data-lucide="check-circle-2"></i>
+              <span>Consultora licenciada certificada</span>
+            </div>
+            <div class="about-item">
+              <i data-lucide="check-circle-2"></i>
+              <span>Especialista em planejamento financeiro</span>
+            </div>
+            <div class="about-item">
+              <i data-lucide="check-circle-2"></i>
+              <span>Mais de 5 anos de experiência</span>
+            </div>
+            <div class="about-item">
+              <i data-lucide="check-circle-2"></i>
+              <span>Abordagem personalizada e humanizada</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFFERENTIALS SECTION -->
+  <section class="differentials">
+    <div class="container">
+      <div class="differentials-header">
+        <div class="differentials-badge">
+          <div class="sparkle-icon">
+            <i data-lucide="sparkles"></i>
+          </div>
+          <span class="badge-text">O diferencial</span>
+          <div class="sparkle-icon">
+            <i data-lucide="sparkles"></i>
+          </div>
+        </div>
+        <h2 class="section-title">Método <span class="highlight">exclusivo</span></h2>
+        <p class="section-description">Consultoria financeira <strong style="font-weight: 800;">prática</strong> e <strong style="font-weight: 800;">humanizada</strong> — porque sua jornada financeira merece uma abordagem única e personalizada.</p>
+      </div>
+      <div class="differentials-grid">
+        <div class="differential-card">
+          <div class="differential-icon">
+            <i data-lucide="users"></i>
+          </div>
+          <h3 class="differential-title">Atendimento Humanizado</h3>
+          <p class="differential-description">Cada pessoa é única, cada solução é personalizada para suas necessidades específicas.</p>
+        </div>
+        <div class="differential-card">
+          <div class="differential-icon">
+            <i data-lucide="clock"></i>
+          </div>
+          <h3 class="differential-title">Processo Prático</h3>
+          <p class="differential-description">Metodologia simplificada que torna decisões financeiras complexas em escolhas claras.</p>
+        </div>
+        <div class="differential-card">
+          <div class="differential-icon">
+            <i data-lucide="award"></i>
+          </div>
+          <h3 class="differential-title">Resultados Comprovados</h3>
+          <p class="differential-description">Mais de 500 clientes já transformaram suas vidas financeiras com nosso método.</p>
+        </div>
+      </div>
+      <div class="cta-highlight">
+        <h3>Sua transformação começa aqui</h3>
+        <p>Agende sua consulta e dê o primeiro passo!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA SECTION -->
+  <section class="final-cta">
+    <div class="container">
+      <h2>Pronto para transformar<br><span class="highlight">sua vida financeira?</span></h2>
+      <p>Não deixe para amanhã a segurança que você pode conquistar hoje. Vamos começar sua jornada rumo à independência financeira.</p>
+      <a href="https://wa.me/13219616203?text=Olá! Quero transformar minha vida financeira." class="cta-button">Quero minha consulta</a>
+      <div class="contact-divider">
+        <div class="divider-line"></div>
+        <span>ou</span>
+        <div class="divider-line"></div>
+      </div>
+      <div class="contact-buttons">
+        <a href="tel:+13219616203" class="contact-button">
+          <i data-lucide="phone"></i>
+        </a>
+        <a href="mailto:contato@consultoriafinanceira.com" class="contact-button">
+          <i data-lucide="mail"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOATING BUTTONS -->
+  <a href="https://wa.me/13219616203?text=Olá! Gostaria de uma consulta financeira." class="floating-whatsapp" title="Falar no WhatsApp">
+    <i data-lucide="message-circle"></i>
+  </a>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--background, #fff);
+  color: var(--text, #111);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary, #4CAF50), var(--secondary, #5D4037));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.shadow-luxury {
+  box-shadow: 0 20px 70px rgba(77, 175, 80, 0.15);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary, #4CAF50), #45a049);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(77, 175, 80, 0.3);
+}

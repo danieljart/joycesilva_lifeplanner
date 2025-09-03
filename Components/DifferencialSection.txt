@@ -1,0 +1,89 @@
+import React from "react";
+import { Sparkles, Users, Clock, Award } from "lucide-react";
+import { motion } from "framer-motion";
+
+const differentials = [
+  {
+    icon: Users,
+    title: "Atendimento Humanizado",
+    description: "Cada pessoa é única, cada solução é personalizada para suas necessidades específicas."
+  },
+  {
+    icon: Clock,
+    title: "Processo Prático",
+    description: "Metodologia simplificada que torna decisões financeiras complexas em escolhas claras."
+  },
+  {
+    icon: Award,
+    title: "Resultados Comprovados",
+    description: "Mais de 500 clientes já transformaram suas vidas financeiras com nosso método."
+  }
+];
+
+export default function DifferentialSection() {
+  return (
+    <section className="py-32 bg-gradient-to-br from-green-50/50 via-white to-amber-50/30">
+      <div className="max-w-7xl mx-auto px-6">
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20"
+        >
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <Sparkles className="w-8 h-8 text-amber-500" />
+            <span className="text-amber-600 font-medium uppercase tracking-wider text-sm">
+              O diferencial
+            </span>
+            <Sparkles className="w-8 h-8 text-amber-500" />
+          </div>
+          
+          <h2 className="text-4xl lg:text-6xl font-light text-gray-900 mb-6">
+            Método <span className="gradient-text font-medium">exclusivo</span>
+          </h2>
+          
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            Consultoria financeira <strong>prática</strong> e <strong>humanizada</strong> — 
+            porque sua jornada financeira merece uma abordagem única e personalizada.
+          </p>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+          {differentials.map((diff, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.2, duration: 0.8 }}
+              className="group"
+            >
+              <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 h-full shadow-luxury border border-white/50 hover:bg-white transition-all duration-500 group-hover:-translate-y-2">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-green-500 to-amber-500 p-4 mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <diff.icon className="w-8 h-8 text-white" />
+                </div>
+                
+                <h3 className="text-2xl font-medium text-gray-900 mb-4">
+                  {diff.title}
+                </h3>
+                
+                <p className="text-gray-600 leading-relaxed">
+                  {diff.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Central highlight */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="relative"
+        >
+          <div className="bg-gradient-to-r from-green-600 to-amber-600 rounded-3xl p-12 text-center text-white shadow-luxury">
+ 

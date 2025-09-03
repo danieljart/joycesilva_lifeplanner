@@ -1,0 +1,21 @@
+import HeroSection from "../components/HeroSection";
+import ServicesSection from "../components/ServicesSection";
+import AboutSection from "../components/AboutSection";
+import DifferentialSection from "../components/DifferentialSection";
+import ContactForm from "../components/ContactForm";
+import FinalCTA from "../components/FinalCTA";
+import FloatingButtons from "../components/FloatingButtons";
+
+export default function Home() {
+  return (
+    <div className="min-h-screen">
+      <HeroSection />
+      <ServicesSection />
+      <AboutSection />
+      <DifferentialSection />
+      <ContactForm />
+      <FinalCTA />
+      <FloatingButtons />
+    </div>
+  );
+}

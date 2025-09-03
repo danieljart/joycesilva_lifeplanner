@@ -1,0 +1,89 @@
+import React from "react";
+import { Shield, PiggyBank, TrendingUp, GraduationCap } from "lucide-react";
+import { motion } from "framer-motion";
+
+const services = [
+  {
+    icon: Shield,
+    title: "Seguro de Vida",
+    description: "Proteção para o seu presente e futuro.",
+    gradient: "from-green-500 to-green-600"
+  },
+  {
+    icon: PiggyBank,
+    title: "Previdência",
+    description: "Planejamento seguro para a sua aposentadoria.",
+    gradient: "from-amber-500 to-orange-600"
+  },
+  {
+    icon: TrendingUp,
+    title: "Investimentos",
+    description: "Opções inteligentes para o seu dinheiro render.",
+    gradient: "from-blue-500 to-indigo-600"
+  },
+  {
+    icon: GraduationCap,
+    title: "College",
+    description: "Planejamento financeiro para universidades e estudos.",
+    gradient: "from-purple-500 to-pink-600"
+  }
+];
+
+export default function ServicesSection() {
+  return (
+    <section className="py-32 bg-gradient-to-b from-white to-gray-50">
+      <div className="max-w-7xl mx-auto px-6">
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20"
+        >
+          <h2 className="text-4xl lg:text-6xl font-light text-gray-900 mb-6">
+            Como posso <span className="gradient-text font-medium">ajudar você</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Serviços personalizados para cada momento da sua jornada financeira
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {services.map((service, index) => (
+            <motion.div
+              key={service.title}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.8 }}
+              whileHover={{ y: -10, transition: { duration: 0.3 } }}
+              className="group"
+            >
+              <div className="bg-white rounded-3xl p-8 h-full shadow-luxury border border-gray-100 hover:border-green-200 transition-all duration-500">
+                
+                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${service.gradient} p-4 mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <service.icon className="w-8 h-8 text-white" />
+                </div>
+                
+                <h3 className="text-2xl font-medium text-gray-900 mb-4">
+                  {service.title}
+                </h3>
+                
+                <p className="text-gray-600 leading-relaxed">
+                  {service.description}
+                </p>
+
+                <div className="mt-6 pt-6 border-t border-gray-100">
+                  <div className={`text-sm font-medium bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}>
+                    Saiba mais →
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
